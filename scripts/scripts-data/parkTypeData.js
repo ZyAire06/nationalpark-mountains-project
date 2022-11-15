@@ -1,4 +1,4 @@
-const parkTypesArray = [
+export const parkTypesArray = [
     "National Park",
     "National Monument",
     "Recreation Area",
@@ -13,3 +13,4 @@ const parkTypesArray = [
     "Trail",
     "Parkway"
 ]
+

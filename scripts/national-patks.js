@@ -1,36 +1,80 @@
-window.onload= ()=>{
-    const states = [
-        'Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Federated States of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-    ];
 
-    let numsStates = states.length;
+ // overall, this file should be able to display the national parks infomation through thr nationalParkData.js
 
-    for(let i =0; i < numsStates; i++){
-        let statesOptions = new Option(states[i]);
-        // console.log(statesOptions);
+     // importing the arrays from different data files 
 
-        let statesTag = document.getElementById('states');
-        statesTag.addEventListener('change', parkTypes);
-        statesTag.appendChild(statesOptions);
+     //location file
+     import {locationsArray} from "./scripts-data/locationData.js";
+    //park types file 
+    import {parkTypesArray} from "./scripts-data/parkTypeData.js";
+    //national park file 
+    import {nationalParksArray} from "./scripts-data/nationalParkData.js";
 
 
-        function  parkTypes(){
-            // console.log('it works');
-            
-            // to link the parkTypData.js into this function 
-            import {parkTypesArray} from './scripts-data/parkTypeData';
-            val = parkTypes();
-            
-            let types = document.getElementById('typesOfParks');
-            types/addEventListener('change', nationalParks)
-            types.appendChild();
-                
-        
+window.onload = () =>{
+
+
+
+    
+        // creating a dropdown for the state array
+
+         // assigning a variable for the the length of the location array
+        let numsStates = locationsArray.length;
+
 
         
-        }
-        function nationalParks(){
+        for(let i =0; i < numsStates; i++){
 
+            // assign statesOption to create a dropdown of option from the locationsArray
+            let statesOptions = new Option(locationsArray [i]);
+            // console.log(statesOptions);
+
+            // assigning the states if as statesTag variable 
+            let statesTag = document.getElementById('states');
+
+            // adding event listener to stateTag to start the function 
+            statesTag.addEventListener('change', searchNationalParks);
+
+            // pushing statesTag into the document(html)
+            statesTag.appendChild(statesOptions);
+
+
+              // I want that to be able to filter its way through nationalParksData.js 
+
+              nationalParksArray.filter(searchNationalParks);
+
+              function searchNationalParks (nationalParksArray, statesTag){
+                  if(  nationalParksArray.State == statesOptions[i]){
+                      console.log(`it works`);
+                  }
+                 
+              }
+         
+        
         }
+        
+      
     }
-}
+  
+  
+    // I want to create an onchange event to search got the parktype(parkTypeData.js)
+/*     function  parkTypes(){
+        // console.log('it works');
+      
+        let numParkTypes = parkTypesArray.length;
+        for(let i=0; i<numParkTypes; i++){
+        
+            let parksTypesOptions = new Option(parkTypesArray[i]);
+            // console.log(parksTypesOptions);
+
+            let types = document.getElementById('typesOfParks');
+            // types.addEventListener('change', )
+            types.appendChild(parksTypesOptions);
+
+           
+        } */
+
+    
+    // I want that to be able to filter through the nationalParksData.js as well 
+
+    

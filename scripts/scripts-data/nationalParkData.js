@@ -1,4 +1,4 @@
-const nationalParksArray = [
+export const nationalParksArray = [
     {
     LocationID: "ABLI",
     LocationName: "Abraham Lincoln Birthplace National Historical Park",
@@ -6858,3 +6858,6 @@ const nationalParksArray = [
     }
     }
 ]
+
+
+
