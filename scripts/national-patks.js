@@ -27,7 +27,7 @@ window.onload = () =>{
 
             // assign statesOption to create a dropdown of option from the locationsArray
             let statesOptions = new Option(locationsArray [i]);
-            // console.log(statesOptions);
+            // console.log(statesOptions.innerText);
 
             // assigning the states if as statesTag variable 
             let statesTag = document.getElementById('states');
@@ -38,43 +38,68 @@ window.onload = () =>{
             // pushing statesTag into the document(html)
             statesTag.appendChild(statesOptions);
 
-
               // I want that to be able to filter its way through nationalParksData.js 
 
-              nationalParksArray.filter(searchNationalParks);
+              
+            function searchNationalParks () {
+                console.log(nationalParksArray[i].State, statesTag.value);
 
-              function searchNationalParks (nationalParksArray, statesTag){
-                  if(  nationalParksArray.State == statesOptions[i]){
-                      console.log(`it works`);
-                  }
-                 
-              }
-         
-        
+                if (nationalParksArray[i].State == statesTag.value) {
+                    console.log(`it works `);
+                   console.log (nationalParksArray[i]);
+                   // trying to push the value in the each obejct  that's inside of nationalParksArray\
+
+                   // assigning insertParkInfo to the div id parksInfo
+                   let insertParkInfo = document.getElementById('parksInfo');
+
+                   // creating p element in javascript 
+                   const pElement = document.createElement('p');
+
+                   //want to push the objects value using
+                   const myArray = Object.values(nationalParksArray[i]);
+                   insertParkInfo.appendChild(pElement).innerText = myArray;
+
+                   // display it in a table using map method and add remove method
+                   let displayNationalParks = nationalParksArray.map(
+
+                    table = `<tr>`
+                   )
+                
+                }
+               
+            }
+            
+            
+ 
         }
         
-      
-    }
-  
   
     // I want to create an onchange event to search got the parktype(parkTypeData.js)
-/*     function  parkTypes(){
-        // console.log('it works');
+  
       
         let numParkTypes = parkTypesArray.length;
+
         for(let i=0; i<numParkTypes; i++){
         
             let parksTypesOptions = new Option(parkTypesArray[i]);
             // console.log(parksTypesOptions);
 
             let types = document.getElementById('typesOfParks');
-            // types.addEventListener('change', )
+            types.addEventListener('change', searchByParkTypes)
+
             types.appendChild(parksTypesOptions);
 
-           
-        } */
+            function searchByParkTypes() {
+              // I want to use the map method to find the parktype in the Locationsname 
 
+              //create a table displaying the vaules of the array using map and remove method
+
+               
+            }
+           
+        } 
+    
     
     // I want that to be able to filter through the nationalParksData.js as well 
 
-    
+}
