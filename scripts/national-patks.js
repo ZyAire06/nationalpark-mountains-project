@@ -39,8 +39,6 @@ window.onload = () =>{
             statesTag.appendChild(statesOptions);
 
               // I want that to be able to filter its way through nationalParksData.js 
-
-              
             function searchNationalParks () {
                 console.log(nationalParksArray[i].State, statesTag.value);
 
@@ -49,22 +47,31 @@ window.onload = () =>{
                    console.log (nationalParksArray[i]);
                    // trying to push the value in the each obejct  that's inside of nationalParksArray\
 
-                   // assigning insertParkInfo to the div id parksInfo
-                   let insertParkInfo = document.getElementById('parksInfo');
-
-                   // creating p element in javascript 
-                   const pElement = document.createElement('p');
-
-                   //want to push the objects value using
-                   const myArray = Object.values(nationalParksArray[i]);
-                   insertParkInfo.appendChild(pElement).innerText = myArray;
-
                    // display it in a table using map method and add remove method
-                   let displayNationalParks = nationalParksArray.map(
 
-                    table = `<tr>`
-                   )
+                    // creating element for the tbody tag 
+                    let tBodyEle = document.querySelector('tbody')
+
+                    // let tBodyEle = document.createElement('tbody');
+                    
+                   
+                    
+                    //creating function that will display the table data of the nationalParksArray
+                    function onAddnationalPaarks (){
+                        
+                        
+                        // declaring parksData to obtain the values in each object in the nationalParksArray
+                        let parksData = Object.values(nationalParksArray[i]);
+                        console.log(parksData);
+                        //inserting the the table row and data with parksData
+                        tBodyEle.innerHTML += `
+                        <tr>
+                            <td>${parksData}</td>
+                        </tr>
+                        `;
+                    }
                 
+                    onAddnationalPaarks();
                 }
                
             }
@@ -77,7 +84,7 @@ window.onload = () =>{
     // I want to create an onchange event to search got the parktype(parkTypeData.js)
   
       
-        let numParkTypes = parkTypesArray.length;
+      /*   let numParkTypes = parkTypesArray.length;
 
         for(let i=0; i<numParkTypes; i++){
         
@@ -97,7 +104,7 @@ window.onload = () =>{
                
             }
            
-        } 
+        }  */
     
     
     // I want that to be able to filter through the nationalParksData.js as well 
