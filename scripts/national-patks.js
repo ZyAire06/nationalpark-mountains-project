@@ -61,14 +61,31 @@ window.onload = () =>{
                         
                         
                         // declaring parksData to obtain the values in each object in the nationalParksArray
-                        let parksData = Object.values(nationalParksArray[i]);
-                        console.log(parksData);
-                        //inserting the the table row and data with parksData
-                        tBodyEle.innerHTML += `
-                        <tr>
-                            <td>${parksData}</td>
-                        </tr>
+                     
+                            //inserting the the table row and data with parksData
+                            tBodyEle.innerHTML += `
+                            <tr>
+                                <td>${nationalParksArray[i].LocationID}</td>
+                                <td>${nationalParksArray[i].LocationName}</td>
+                                <td>${nationalParksArray[i].Address}</td>
+                                <td>${nationalParksArray[i].City}</td>
+                                <td>${nationalParksArray[i].State}</td>
+                                <td>${nationalParksArray[i].ZipCode}</td>
+                                <td>${nationalParksArray[i].Phone}</td>
+                                <td>${nationalParksArray[i].Fax}</td>
+                                <td>${nationalParksArray[i].Visit}</td>
+                                <td>${nationalParksArray[i].Latitude}</td>
+                                <td>${nationalParksArray[i].Longitude}</td>
+                                <td>${nationalParksArray[i].Location.coordinates}</td>
+                
+
+                            </tr>
                         `;
+
+                        //THINGS TO COMEBACK TOO AFTER I'M FINISH PRODUCT 
+                        // add remove method when clicking another state(button maybe)
+                        //fix visit when 
+                       
                     }
                 
                     onAddnationalPaarks();
@@ -84,7 +101,7 @@ window.onload = () =>{
     // I want to create an onchange event to search got the parktype(parkTypeData.js)
   
       
-      /*   let numParkTypes = parkTypesArray.length;
+         let numParkTypes = parkTypesArray.length;
 
         for(let i=0; i<numParkTypes; i++){
         
@@ -97,15 +114,43 @@ window.onload = () =>{
             types.appendChild(parksTypesOptions);
 
             function searchByParkTypes() {
-              // I want to use the map method to find the parktype in the Locationsname 
-
-              //create a table displaying the vaules of the array using map and remove method
-
-               
-            }
-           
-        }  */
+                // I want to use the map method to find the parktype in the Locationsname 
+                if (nationalParksArray.LocationName == types.value) {
+                    console.log(`it works `);
+                   console.log (nationalParksArray[i]);
+                //create a table displaying the vaules of the array using map and remove method
+             
+                  
+                  /*   let tBodyEle = document.querySelector('tbody')
     
+                    /
+                    function onAddnationalPaarks (){
+                        
+                        
+                        
+                            tBodyEle.innerHTML += `
+                            <tr>
+                                <td>${nationalParksArray[i].LocationID}</td>
+                                <td>${nationalParksArray[i].LocationName}</td>
+                                <td>${nationalParksArray[i].Address}</td>
+                                <td>${nationalParksArray[i].City}</td>
+                                <td>${nationalParksArray[i].State}</td>
+                                <td>${nationalParksArray[i].ZipCode}</td>
+                                <td>${nationalParksArray[i].Phone}</td>
+                                <td>${nationalParksArray[i].Fax}</td>
+                                <td>${nationalParksArray[i].Visit}</td>
+                                <td>${nationalParksArray[i].Latitude}</td>
+                                <td>${nationalParksArray[i].Longitude}</td>
+                                <td>${nationalParksArray[i].Location.coordinates}</td>
+                
+    
+                            </tr>
+                        `; */
+                 
+           
+        }  
+    }
+}
     
     // I want that to be able to filter through the nationalParksData.js as well 
 
