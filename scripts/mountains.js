@@ -14,19 +14,25 @@ window.onload = () =>{
             if(mounNames.name == optionEle.value ){
                 console.log(`it works`);
                 console.log(mounNames);
-                let divEle = document.getElementById('displayMountInfo');
-
-                 () => {
-                   
-                    divEle.innerHTML += `
+                let divEle = document.querySelector('div');
+               /*  let pEle = document.createElement('p');
+                pEle.textContent = `${mounNames.desc}`;
+                divEle.appendChild(pEle); */
+                 divEle.innerHTML += `
+                    
+                    <h2 class = 'mountname'>${mounNames.name}</h2>
+                    <p class =' descripOfMount'>${mounNames.desc}</p>
+                    <img src="${mounNames.img}" alt= "mountain pics">
+                    <br>
                     <tr>
-                    <h2>${mounNames.name}</h2>
-                    <p>${mounNames.desc}</p>
-                    <img>${mounNames.img}</img>
+                    <td>${mounNames.elevation}</td>
+                    <td>${mounNames.effort}</td>
+                    <td>${mounNames.coords.lat}</td>
+                    </tr>
 
                     
-                    `;
-                }
+                    `; 
+                
                 
             }
         });
