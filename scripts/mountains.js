@@ -8,9 +8,13 @@ window.onload = () =>{
     mountainsArray.map((mounNames) =>{
         console.log(mounNames.name)
         let namesOption = new Option(mounNames.name);
+
         let optionEle = document.getElementById('mountainNames');
+
         optionEle.appendChild(namesOption);
+
         optionEle.addEventListener('change', () => {
+
             if(mounNames.name == optionEle.value ){
                 console.log(`it works`);
                 console.log(mounNames);
@@ -22,9 +26,9 @@ window.onload = () =>{
                     
                     <h2 class = 'mountname'>${mounNames.name}</h2>
                     <p class =' descripOfMount'>${mounNames.desc}</p>
-                    <img src="${mounNames.img}" alt= "mountain pics">
+                    <img src="${mounNames.img}" alt= "mountain pics" class = "imgs">
                     <br>
-                    <tr>
+                    <tr class ="table">
                     <td>${mounNames.elevation}</td>
                     <td>${mounNames.effort}</td>
                     <td>${mounNames.coords.lat}</td>

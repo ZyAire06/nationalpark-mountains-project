@@ -1,0 +1,64 @@
+body{
+    background-image: url(/assests/istockphoto-458141089-612x612-background.jpg);
+}
+
+h1{
+    color: orangered;
+    font-weight: bold;
+    font-family: fantasy;
+    font-size: 33px;
+    text-align: center;
+}
+
+#mountainNames{
+    background-color: orangered;
+    color: bisque;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 23px;
+  
+}
+
+#mountainNames:hover{
+    background-color: darkgreen;
+}
+
+.mountname{
+    font-family: fantasy;
+    font-weight: 25px;
+    font-size: 45px;
+    text-align: center;
+    color: beige;
+    text-shadow: 2px 2px black;
+
+}
+
+.descripOfMount{
+    font-weight: 23px;
+    font-size: 33px;
+    color: beige;
+    
+}
+
+
+#states, #typesOfParks, #nationalParks{
+    background-color: orangered;
+    color: bisque;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 23px;
+}
+
+#nationalParks:hover{
+    background-color: darkgreen;
+}
+
+#states:hover{
+    background-color: darkgreen;
+}
+
+#typesOfParks:hover{
+    background-color: darkgreen;
+}

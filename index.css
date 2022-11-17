@@ -1,0 +1,57 @@
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: fantasy;
+    color: orangered;
+}
+
+div{
+    overflow: hidden;
+}
+input[type= text]{
+    
+    background-color: bisque;
+    
+
+}
+
+nav{
+    margin-top: 68px;
+    margin-right: 16px;
+}
+#pEle{
+    float: none;
+    display: block;
+    /* text-align: left; */
+   
+    /* margin-top: 68px; */
+    margin-right: 16px;
+    list-style: none;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    display: grid;
+    justify-content: flex-end;
+}
+
+button{
+    justify-content: center;
+    background-color: darkgreen;
+    border-radius: 20px;
+    padding: 10px;
+    color: cornsilk;
+    font-family: fantasy;
+    font-weight: 20px;
+}
+
+button:hover{
+    background-color: orangered;
+}
