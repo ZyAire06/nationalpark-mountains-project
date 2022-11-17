@@ -1,3 +1,7 @@
+body{
+    background-image: url(/assests/istockphoto-458141089-612x612-background.jpg);
+}
+
 h1{
     display: flex;
     justify-content: center;
@@ -33,13 +37,20 @@ nav{
 }
 
 h3{
-    display: flex;
-    justify-content: center;
+
+    font-family: fantasy;
+    font-weight: 25px;
+    font-size: 45px;
+    text-align: center;
+    color: beige;
+    text-shadow: 2px 2px black;
 }
 
 p{
-    display: grid;
-    justify-content: flex-end;
+    font-weight: 23px;
+    font-size: 33px;
+    color: beige;
+    text-shadow: 2px 2px black;
 }
 
 button{
@@ -47,11 +58,14 @@ button{
     background-color: darkgreen;
     border-radius: 20px;
     padding: 10px;
-    color: cornsilk;
-    font-family: fantasy;
-    font-weight: 20px;
-}
 
+}
+a:link, a:visited{
+text-decoration: none;
+color: cornsilk;
+font-family: fantasy;
+font-weight: 20px;
+}
 button:hover{
     background-color: orangered;
 }

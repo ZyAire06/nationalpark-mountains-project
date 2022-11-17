@@ -6,8 +6,9 @@ h1{
     color: orangered;
     font-weight: bold;
     font-family: fantasy;
-    font-size: 33px;
+    font-size: 53px;
     text-align: center;
+    text-shadow: 2px 2px black;
 }
 
 #mountainNames{
@@ -38,6 +39,7 @@ h1{
     font-weight: 23px;
     font-size: 33px;
     color: beige;
+    text-shadow: 2px 2px black;
     
 }
 
@@ -62,3 +64,20 @@ h1{
 #typesOfParks:hover{
     background-color: darkgreen;
 }
+
+#parksInfo{
+    font-family: fantasy;
+    font-weight: 25px;
+    font-size: 15px;
+    text-align: center;
+    color: beige;
+    text-shadow: 2px 2px black;
+    display: flex;
+    flex-shrink: 40px;
+}
+table, tr, th, tbody,td{
+    border: 4px solid darkgreen;
+}
+
+
+
