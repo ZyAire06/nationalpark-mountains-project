@@ -50,7 +50,7 @@ window.onload = () =>{
                    // display it in a table using map method and add remove method
 
                     // creating element for the tbody tag 
-                    let tBodyEle = document.querySelector('tbody')
+                    let tBodyEle = document.querySelector('tbody');
 
                     // let tBodyEle = document.createElement('tbody');
                     
@@ -109,47 +109,49 @@ window.onload = () =>{
             // console.log(parksTypesOptions);
 
             let types = document.getElementById('typesOfParks');
-            types.addEventListener('change', searchByParkTypes)
+            types.addEventListener('change', () => {
+                // I want to use the map method to find the parktype in the Locationsname 
+                     
+
+                    let name = nationalParksArray[i].LocationName;
+                    if (name.includes(types.value,1)) {
+                        console.log(`it works `);
+                    console.log (nationalParksArray[i]);
+                    let tBodyEle = document.querySelector('tbody')
+                    tBodyEle.innerHTML += `
+                    <tr>
+                    <td>${nationalParksArray[i].LocationID}</td>
+                    <td>${nationalParksArray[i].LocationName}</td>
+                    <td>${nationalParksArray[i].Address}</td>
+                    <td>${nationalParksArray[i].City}</td>
+                    <td>${nationalParksArray[i].State}</td>
+                    <td>${nationalParksArray[i].ZipCode}</td>
+                    <td>${nationalParksArray[i].Phone}</td>
+                    <td>${nationalParksArray[i].Fax}</td>
+                    <td>${nationalParksArray[i].Visit}</td>
+                    <td>${nationalParksArray[i].Latitude}</td>
+                    <td>${nationalParksArray[i].Longitude}</td>
+                    <td>${nationalParksArray[i].Location.coordinates}</td>
+        
+
+                    </tr>
+                `;
+
+                }
+                
+                  
+            })
 
             types.appendChild(parksTypesOptions);
-
-            function searchByParkTypes() {
-                // I want to use the map method to find the parktype in the Locationsname 
-                if (nationalParksArray.LocationName == types.value) {
-                    console.log(`it works `);
-                   console.log (nationalParksArray[i]);
+ 
+            
                 //create a table displaying the vaules of the array using map and remove method
              
-                  
-                  /*   let tBodyEle = document.querySelector('tbody')
-    
-                    /
-                    function onAddnationalPaarks (){
-                        
-                        
-                        
-                            tBodyEle.innerHTML += `
-                            <tr>
-                                <td>${nationalParksArray[i].LocationID}</td>
-                                <td>${nationalParksArray[i].LocationName}</td>
-                                <td>${nationalParksArray[i].Address}</td>
-                                <td>${nationalParksArray[i].City}</td>
-                                <td>${nationalParksArray[i].State}</td>
-                                <td>${nationalParksArray[i].ZipCode}</td>
-                                <td>${nationalParksArray[i].Phone}</td>
-                                <td>${nationalParksArray[i].Fax}</td>
-                                <td>${nationalParksArray[i].Visit}</td>
-                                <td>${nationalParksArray[i].Latitude}</td>
-                                <td>${nationalParksArray[i].Longitude}</td>
-                                <td>${nationalParksArray[i].Location.coordinates}</td>
-                
-    
-                            </tr>
-                        `; */
+               
                  
            
-        }  
-    }
+        
+    
 }
     
     // I want that to be able to filter through the nationalParksData.js as well 
