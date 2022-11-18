@@ -26,7 +26,7 @@ window.onload = () =>{
                     
                     <h2 class = 'mountname'>${mounNames.name}</h2>
                     <p class =' descripOfMount'>${mounNames.desc}</p>
-                    <img src="${mounNames.img}" alt= "mountain pics" class = "imgs">
+                    <img src="/assests/images/${mounNames.img}" alt= "mountain pics" class = "imgs">
                     <br>
                     <tr class ="table">
                     <td>${mounNames.elevation}</td>
