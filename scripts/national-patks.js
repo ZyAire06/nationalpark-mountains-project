@@ -83,14 +83,15 @@ window.onload = () =>{
     // I want to create an onchange event to search got the parktype(parkTypeData.js)
   
       
-        /*  let numParkTypes = parkTypesArray.length;
+          let numParkTypes = parkTypesArray.length;
 
         for(let i=0; i<numParkTypes; i++){
         
-            let parksTypesOptions = new Option(parkTypesArrayi]);
+            let parksTypesOptions = new Option(parkTypesArrayi);
             // console.log(parksTypesOptions);[
 
             let types = document.getElementById('typesOfParks');
+            types.appendChild(parksTypesOptions);
             types.addEventListener('change', () => {
                 // I want to use the map method to find the parktype in the Locationsname 
                      
@@ -117,15 +118,19 @@ window.onload = () =>{
         
 
                     </tr>
-                `; */
+                `; }
+            
 
-                }
+
+            });
+
+        }
                 
                 
                   
             
 
-            types.appendChild(parksTypesOptions);
+           
  
             
                 //create a table displaying the vaules of the array using map and remove method
@@ -133,12 +138,15 @@ window.onload = () =>{
                
                  
            
-        parkTypesArray.map((pkTypesArray) => {
+   /*      parkTypesArray.map((pkTypesArray) => {
             let  parksTypesOptions = new Option(pkTypesArray);
             console.log( parksTypesOptions.innerText)
-            let statesTag = document.getElementById('typesOfParks');
-            statesTag.appendChild( parksTypesOptions);
-            statesTag.addEventListener('change', () =>{
+            let typesTag = document.getElementById('typesOfParks');
+            typesTag.appendChild( parksTypesOptions);
+            typesTag.addEventListener('change', searchParkTypes);
+
+
+            function searchParkTypes(){
                 let typesValue = document.getElementById('typesOfParks');
                      parkTypesArray.filter((items) =>{
                     return items.LocationName == typesValue.value;
@@ -169,11 +177,13 @@ window.onload = () =>{
                 </tr>
             `;}
 
-        });
+        }
+    
      
-    });
+    }); 
+
         
         
     // I want that to be able to filter through the nationalParksData.js as well 
-
+}
 
