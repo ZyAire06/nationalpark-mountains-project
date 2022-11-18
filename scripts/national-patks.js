@@ -1,4 +1,8 @@
 
+
+
+
+
  // overall, this file should be able to display the national parks infomation through thr nationalParkData.js
 
      // importing the arrays from different data files 
@@ -13,145 +17,173 @@
 
 window.onload = () =>{
 
-
-
     
-        // creating a dropdown for the state array
-
-         // assigning a variable for the the length of the location array
-        let numsStates = locationsArray.length;
+    
 
 
-        
-        for(let i =0; i < numsStates; i++){
-
-            // assign statesOption to create a dropdown of option from the locationsArray
-            let statesOptions = new Option(locationsArray [i]);
-            // console.log(statesOptions.innerText);
-
-            // assigning the states if as statesTag variable 
+        locationsArray.map((locArray) => {
+            let statesOptions = new Option(locArray);
+            console.log(statesOptions.innerText)
             let statesTag = document.getElementById('states');
-
-            // adding event listener to stateTag to start the function 
-            statesTag.addEventListener('change', searchNationalParks);
-
-            // pushing statesTag into the document(html)
             statesTag.appendChild(statesOptions);
+            statesTag.addEventListener('change', searchParkArray)
 
-              // I want that to be able to filter its way through nationalParksData.js 
-            function searchNationalParks () {
-                console.log(nationalParksArray[i].State, statesTag.value);
+        })
+     
+        function searchParkArray(){
+          
+            const newparkArray = [];
 
-                if (nationalParksArray[i].State == statesTag.value) {
-                    console.log(`it works `);
-                   console.log (nationalParksArray[i]);
-                   // trying to push the value in the each obejct  that's inside of nationalParksArray\
-
-                   // display it in a table using map method and add remove method
-
-                    // creating element for the tbody tag 
-                    let tBodyEle = document.querySelector('tbody')
-
-                    // let tBodyEle = document.createElement('tbody');
+            let statesValue = document.querySelector('select');
+            // console.log(statesValue)
+                 let parkArray = nationalParksArray.filter((items) =>{
+                    return items.State == statesValue.value;
                     
-                   
-                    
-                    //creating function that will display the table data of the nationalParksArray
-                    function onAddnationalPaarks (){
-                        
-                        
-                        // declaring parksData to obtain the values in each object in the nationalParksArray
-                     
-                            //inserting the the table row and data with parksData
-                            tBodyEle.innerHTML += `
-                            <tr>
-                                <td>${nationalParksArray[i].LocationID}</td>
-                                <td>${nationalParksArray[i].LocationName}</td>
-                                <td>${nationalParksArray[i].Address}</td>
-                                <td>${nationalParksArray[i].City}</td>
-                                <td>${nationalParksArray[i].State}</td>
-                                <td>${nationalParksArray[i].ZipCode}</td>
-                                <td>${nationalParksArray[i].Phone}</td>
-                                <td>${nationalParksArray[i].Fax}</td>
-                                <td>${nationalParksArray[i].Visit}</td>
-                                <td>${nationalParksArray[i].Latitude}</td>
-                                <td>${nationalParksArray[i].Longitude}</td>
-                                <td>${nationalParksArray[i].Location.coordinates}</td>
-                
+                })
+                // console.log(parkArray);
+                // console.log(nationalParksArray.value)
 
-                            </tr>
-                        `;
+                let numParkArray = parkArray.length;
 
-                        //THINGS TO COMEBACK TOO AFTER I'M FINISH PRODUCT 
-                        // add remove method when clicking another state(button maybe)
-                        //fix visit when 
-                       
-                    }
-                
-                    onAddnationalPaarks();
-                }
+                for(let i =0; i<numParkArray; i++){
                
-            }
-            
-            
- 
-        }
+                    
+                    let tBodyEle = document.querySelector('tbody');
+
+                    tBodyEle.innerHTML += `
+                    <tr>
+                        <td>${parkArray[i].LocationID}</td>
+                        <td>${parkArray[i].LocationName}</td>
+                        <td>${parkArray[i].Address}</td>
+                        <td>${parkArray[i].City}</td>
+                        <td>${parkArray[i].State}</td>
+                        <td>${parkArray[i].ZipCode}</td>
+                        <td>${parkArray[i].Phone}</td>
+                        <td>${parkArray[i].Fax}</td>
+                        <td>${parkArray[i].Visit}</td>
+                        <td>${parkArray[i].Latitude}</td>
+                        <td>${parkArray[i].Longitude}</td>
+                        <td>${parkArray[i].Location.coordinates}</td>
         
-  
+    
+                    </tr>
+                `;
+                if(parkArray[i]){
+                    newparkArray.splice(0, numParkArray)
+                    newparkArray.push(tBodyEle.innerHTML)
+                    console.log(newparkArray)
+            ;
+          
+            
+            }
+        }
+
+        }
+
     // I want to create an onchange event to search got the parktype(parkTypeData.js)
   
       
-         let numParkTypes = parkTypesArray.length;
+          let numParkTypes = parkTypesArray.length;
 
         for(let i=0; i<numParkTypes; i++){
         
-            let parksTypesOptions = new Option(parkTypesArray[i]);
-            // console.log(parksTypesOptions);
+            let parksTypesOptions = new Option(parkTypesArrayi);
+            // console.log(parksTypesOptions);[
 
             let types = document.getElementById('typesOfParks');
-            types.addEventListener('change', searchByParkTypes)
-
             types.appendChild(parksTypesOptions);
-
-            function searchByParkTypes() {
+            types.addEventListener('change', () => {
                 // I want to use the map method to find the parktype in the Locationsname 
-                if (nationalParksArray.LocationName == types.value) {
-                    console.log(`it works `);
-                   console.log (nationalParksArray[i]);
+                     
+
+                    let name = nationalParksArray[i].LocationName;
+                    if (name.includes(types.value,1)) {
+                        console.log(`it works `);
+                    console.log (nationalParksArray[i]);
+                    let tBodyEle = document.querySelector('tbody')
+                    tBodyEle.innerHTML += `
+                    <tr>
+                    <td>${nationalParksArray[i].LocationID}</td>
+                    <td>${nationalParksArray[i].LocationName}</td>
+                    <td>${nationalParksArray[i].Address}</td>
+                    <td>${nationalParksArray[i].City}</td>
+                    <td>${nationalParksArray[i].State}</td>
+                    <td>${nationalParksArray[i].ZipCode}</td>
+                    <td>${nationalParksArray[i].Phone}</td>
+                    <td>${nationalParksArray[i].Fax}</td>
+                    <td>${nationalParksArray[i].Visit}</td>
+                    <td>${nationalParksArray[i].Latitude}</td>
+                    <td>${nationalParksArray[i].Longitude}</td>
+                    <td>${nationalParksArray[i].Location.coordinates}</td>
+        
+
+                    </tr>
+                `; }
+            
+
+
+            });
+
+        }
+                
+                
+                  
+            
+
+           
+ 
+            
                 //create a table displaying the vaules of the array using map and remove method
              
-                  
-                  /*   let tBodyEle = document.querySelector('tbody')
-    
-                    /
-                    function onAddnationalPaarks (){
-                        
-                        
-                        
-                            tBodyEle.innerHTML += `
-                            <tr>
-                                <td>${nationalParksArray[i].LocationID}</td>
-                                <td>${nationalParksArray[i].LocationName}</td>
-                                <td>${nationalParksArray[i].Address}</td>
-                                <td>${nationalParksArray[i].City}</td>
-                                <td>${nationalParksArray[i].State}</td>
-                                <td>${nationalParksArray[i].ZipCode}</td>
-                                <td>${nationalParksArray[i].Phone}</td>
-                                <td>${nationalParksArray[i].Fax}</td>
-                                <td>${nationalParksArray[i].Visit}</td>
-                                <td>${nationalParksArray[i].Latitude}</td>
-                                <td>${nationalParksArray[i].Longitude}</td>
-                                <td>${nationalParksArray[i].Location.coordinates}</td>
-                
-    
-                            </tr>
-                        `; */
+               
                  
            
-        }  
-    }
-}
-    
-    // I want that to be able to filter through the nationalParksData.js as well 
+   /*      parkTypesArray.map((pkTypesArray) => {
+            let  parksTypesOptions = new Option(pkTypesArray);
+            console.log( parksTypesOptions.innerText)
+            let typesTag = document.getElementById('typesOfParks');
+            typesTag.appendChild( parksTypesOptions);
+            typesTag.addEventListener('change', searchParkTypes);
 
+
+            function searchParkTypes(){
+                let typesValue = document.getElementById('typesOfParks');
+                     parkTypesArray.filter((items) =>{
+                    return items.LocationName == typesValue.value;
+            })
+
+            let numParkArray = nationalParksArray.length;
+            for(let i =0; i<numParkArray; i++){
+               
+                    
+                let tBodyEle = document.querySelector('tbody');
+
+                tBodyEle.innerHTML += `
+                <tr>
+                    <td>${nationalParksArray[i].LocationID}</td>
+                    <td>${nationalParksArray[i].LocationName}</td>
+                    <td>${nationalParksArray[i].Address}</td>
+                    <td>${nationalParksArray[i].City}</td>
+                    <td>${nationalParksArray[i].State}</td>
+                    <td>${nationalParksArray[i].ZipCode}</td>
+                    <td>${nationalParksArray[i].Phone}</td>
+                    <td>${nationalParksArray[i].Fax}</td>
+                    <td>${nationalParksArray[i].Visit}</td>
+                    <td>${nationalParksArray[i].Latitude}</td>
+                    <td>${nationalParksArray[i].Longitude}</td>
+                    <td>${nationalParksArray[i].Location.coordinates}</td>
+    
+
+                </tr>
+            `;}
+
+        }
+    
+     
+    }); 
+
+        
+        
+    // I want that to be able to filter through the nationalParksData.js as well 
 }
+
